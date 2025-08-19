@@ -40,6 +40,23 @@ for (let i = 0; i < menuItemsData.length; i++) {
   });
 }
 
+for (let i = 0; i < menuItemsData.length; i++) {
+  const button = document.getElementById("button-" + menuItemsData[i].id);
+  button.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent the click from bubbling up to the menu item
+    if(localStorage.getItem("cart")==null) {
+      localStorage.setItem("cart", JSON.stringify([menuItemsData[i]]));
+    }
+    else{
+      let cart = JSON.parse(localStorage.getItem("cart"));
+      cart.push(menuItemsData[i]);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      console.log(JSON.parse(localStorage.getItem("cart")));
+    }
+    alert("Item added to cart successfully");
+  });
+}
+
 localStorage.setItem("cart", JSON.stringify([]));
 
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
@@ -55,43 +72,85 @@ for (let i = 0; i < addToCartButtons.length; i++) {
   });
 }
 
+// const searchInput = document.querySelector(".menu-search input");
+// searchInput.addEventListener("input", (e) => {
+//   if (e.target.value == "") {
+//     const searchItemsContainer = document.querySelector(".search-sections");
+//     searchItemsContainer.innerHTML = ""; // Clear previous search results
+//     return;
+//   }
+//   else{
+//         const searchItemsContainer = document.querySelector(".search-sections");
+//         searchItemsContainer.innerHTML = ""; // Clear previous search results
+//         searchItemsContainer.innerHTML += ` <h1>Search Results</h1>
+//         <div class="search-section-items">
+//         <div class="search-items"> 
+//         </div>
+//       </div>`
+//   }
+//   const products = searchFood(e.target.value);
+//   const searchItemsContainer = document.querySelector(".search-sections");
+//   searchItemsContainer.innerHTML = ""; // Clear previous search results
+//   for (let i = 0; i < products.length; i++) {
+//   menuItemsContainer.innerHTML += `<div id=${
+//     "product-" + products[i].id
+//   } class="menu-item">
+//       <img src=${products[i].image} alt="${products[i].title}" class="search-item-image">
+//       <div class="search-item-details">
+//         <h1>${products[i].title}</h1>
+//         <span class="description">${products[i].description}</span>
+//         <span class="price">$${products[i].price.toFixed(2)}</span>
+//         <button id=${
+//           "button-" + products[i].id
+//         } class="add-to-cart hidden">Add to Cart</button>
+//       </div>
+//     </div>`;
+// }
+// });
+
 const searchInput = document.querySelector(".menu-search input");
+
 searchInput.addEventListener("input", (e) => {
-  if (e.target.value === "") {
-    const searchItemsContainer = document.querySelector(".search-sections");
-    searchItemsContainer.innerHTML = ""; // Clear previous search results
-    return;
-  }
-  else{
-        const searchItemsContainer = document.querySelector(".search-sections");
-        searchItemsContainer.innerHTML = ""; // Clear previous search results
-        searchItemsContainer.innerHTML += ` <h1>Search Results</h1>
-        <div class="search-section-items">
-        <div class="search-items"> 
-        </div>
-      </div>`
-  }
-  const products = searchFood(e.target.value);
+  const query = e.target.value.trim();
   const searchItemsContainer = document.querySelector(".search-sections");
-  searchItemsContainer.innerHTML = ""; // Clear previous search results
+
+  // Clear previous search results
+  searchItemsContainer.innerHTML = "";
+
+  if (query === "") {
+    return; // agar empty hai toh bas return kar do
+  }
+
+  // Heading + wrapper add karo
+  searchItemsContainer.innerHTML = `
+    <h1>Search Results</h1>
+    <div class="search-section-items">
+      <div class="search-items"></div>
+    </div>
+  `;
+
+  // search results container
+  const resultsContainer = searchItemsContainer.querySelector(".search-items");
+
+  // matching products lao
+  const products = searchFood(query);
+
+  // render search results
   for (let i = 0; i < products.length; i++) {
-  menuItemsContainer.innerHTML += `<div id=${
-    "product-" + products[i].id
-  } class="menu-item">
-      <img src=${products[i].image} alt="${products[i].title}" class="search-item-image">
-      <div class="search-item-details">
-        <h1>${products[i].title}</h1>
-        <span class="description">${products[i].description}</span>
-        <span class="price">$${products[i].price.toFixed(2)}</span>
-        <button id=${
-          "button-" + products[i].id
-        } class="add-to-cart hidden">Add to Cart</button>
+    resultsContainer.innerHTML += `
+      <div id="product-${products[i].id}" class="menu-item">
+        <img src="${products[i].image}" alt="${products[i].title}" class="search-item-image">
+        <div class="search-item-details">
+          <h1>${products[i].title}</h1>
+          <span class="description">${products[i].description}</span>
+          <span class="price">$${products[i].price.toFixed(2)}</span>
+          <button id="button-${products[i].id}" class="add-to-cart hidden">Add to Cart</button>
+        </div>
       </div>
-    </div>`;
-}
+    `;
+  }
 });
 
-console.log(productTokens);
 
 // Move searchFood function definition to the top
 const searchFood = (searchQuery) => {
@@ -107,18 +166,17 @@ const searchFood = (searchQuery) => {
     }
     productMatchingScores.push({ id: productTokens[i].id, score: count });
   }
-
+  productMatchingScores = productMatchingScores.filter((product) => product.score > 0);
   // Sort in descending order (highest scores first)
   productMatchingScores.sort((a, b) => { return b.score - a.score; });
-  // Keep only top 5 matches
-  console.log(productMatchingScores);
+
   // Find products corresponding to the top matching scores
-  productMatchingScores = productMatchingScores.filter((product) => product.score > 0);
+  
   productMatchingScores = productMatchingScores.splice(0, 5);
-  console.log(productMatchingScores);
+
   const products = [];
   for (let i = 0; i < productMatchingScores.length; i++) {
-    menuItemsData.forEach((menuItem) => {
+    menuItemsData.forEach(menuItem => {
       if (menuItem.id == productMatchingScores[i].id) {
         products.push(menuItem);
       }
