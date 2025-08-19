@@ -1,3 +1,6 @@
+const searchItemsContainer = document.querySelector(".search-sections");
+searchItemsContainer.innerHTML = "";
+
 const menuButtons = document.querySelectorAll(".menu-search-categories button");
 menuButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -54,8 +57,38 @@ for (let i = 0; i < addToCartButtons.length; i++) {
 
 const searchInput = document.querySelector(".menu-search input");
 searchInput.addEventListener("input", (e) => {
+  if (e.target.value === "") {
+    const searchItemsContainer = document.querySelector(".search-sections");
+    searchItemsContainer.innerHTML = ""; // Clear previous search results
+    return;
+  }
+  else{
+        const searchItemsContainer = document.querySelector(".search-sections");
+        searchItemsContainer.innerHTML = ""; // Clear previous search results
+        searchItemsContainer.innerHTML += ` <h1>Search Results</h1>
+        <div class="search-section-items">
+        <div class="search-items"> 
+        </div>
+      </div>`
+  }
   const products = searchFood(e.target.value);
-  console.log(products);
+  const searchItemsContainer = document.querySelector(".search-sections");
+  searchItemsContainer.innerHTML = ""; // Clear previous search results
+  for (let i = 0; i < products.length; i++) {
+  menuItemsContainer.innerHTML += `<div id=${
+    "product-" + products[i].id
+  } class="menu-item">
+      <img src=${products[i].image} alt="${products[i].title}" class="search-item-image">
+      <div class="search-item-details">
+        <h1>${products[i].title}</h1>
+        <span class="description">${products[i].description}</span>
+        <span class="price">$${products[i].price.toFixed(2)}</span>
+        <button id=${
+          "button-" + products[i].id
+        } class="add-to-cart hidden">Add to Cart</button>
+      </div>
+    </div>`;
+}
 });
 
 console.log(productTokens);
@@ -76,7 +109,7 @@ const searchFood = (searchQuery) => {
   }
 
   // Sort in descending order (highest scores first)
-  productMatchingScores.sort((a, b) => b.score - a.score);
+  productMatchingScores.sort((a, b) => { return b.score - a.score; });
   // Keep only top 5 matches
   console.log(productMatchingScores);
   // Find products corresponding to the top matching scores
