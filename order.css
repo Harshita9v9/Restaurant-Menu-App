@@ -1,0 +1,159 @@
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px auto;
+  padding-bottom: 5px;
+  border-bottom: 2px solid red;
+  letter-spacing: 2px;
+  color: #333;
+  display: inline-block; 
+}
+
+/*
+.order-table{
+    width: 100%;
+    border-collapse: collapse;  
+    margin-top: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead{
+    background: #e63946;
+    color: white;   
+    text-transform: uppercase;
+}
+
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+.order-table-head-cell{
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+tbody{
+    display: table-row-group;
+    vertical-align: middle;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+div{
+    display: block;
+    unicode-bidi: isolate;
+}
+
+.order-number{
+    font-size: 20px;
+    font-weight: bold;
+    color: #004aad;
+    flex: 1;
+}
+
+.order-details{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 2;
+    color: #555;
+}
+
+.order-details-item{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    font-size: 16px;
+    color: #555;
+    font-weight: 700;
+   margin-right: 20px;
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.page-title {
+  text-align: center;
+  margin: 40px auto 20px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.order-table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  background: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.order-table thead {
+  background: #e63946;
+  color: white;
+  text-transform: uppercase;
+}
+
+.order-table th,
+.order-table td {
+  padding: 15px;
+  font-size: 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.order-table a {
+  font-weight: bold;
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.order-table a:hover {
+  text-decoration: underline;
+}
+
+.status {
+  padding: 6px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.status-delivered {
+  background: #28a745; /* Green */
+}
+
+.status.transit {
+  background: #f0ad4e; /* Orange */
+}
+
+.status.pending {
+  background: #dc3545; /* Red */
+}
+
+.order-status{
+    padding: 5px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+    color: #fff;
+    flex: 1;
+}

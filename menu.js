@@ -45,17 +45,33 @@ for (let i = 0; i < menuItemsData.length; i++) {
   button.addEventListener("click", (e) => {
     e.stopPropagation(); // Prevent the click from bubbling up to the menu item
     if(localStorage.getItem("cart")==null) {
-      localStorage.setItem("cart", JSON.stringify([menuItemsData[i]]));
+      localStorage.setItem("cart", JSON.stringify([{...menuItemsData[i], quantity: 1}]));
     }
     else{
       let cart = JSON.parse(localStorage.getItem("cart"));
-      cart.push(menuItemsData[i]);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      console.log(JSON.parse(localStorage.getItem("cart")));
+      let itemsPresent = false;
+      let item;
+      for(let j=0;j<cart.length;j++){
+        if(cart[j].id == menuItemsData[i].id){
+          itemsPresent = true;
+          item = cart[j];
+          break;
+        }
+      }
+      if (itemsPresent) {
+        item.quantity+=1;
     }
+    else{
+      cart.push({...menuItemsData[i], quantity: 1});
+    }
+       localStorage.setItem("cart", JSON.stringify(cart));
+      console.log(JSON.parse(localStorage.getItem("cart")));
     alert("Item added to cart successfully");
-  });
+
+  }
 }
+);
+} 
 
 localStorage.setItem("cart", JSON.stringify([]));
 

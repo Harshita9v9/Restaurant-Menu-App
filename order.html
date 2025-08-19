@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="menu.css" />
+    <link rel="stylesheet" href="order.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,7 +32,94 @@
       </div>
     </nav>
 
-   
+    <h1>YOUR ORDERS</h1>
+    <section class="order-sections">
+        <table class="order-table">
+            <thead class="order-table-head">
+                <tr>
+                    <th class="order-table-head-cell">Order No</th>
+                    <th class="order-table-head-cell">Order Details</th>
+                    <th class="order-table-head-cell">Total Price</th>
+                    <th class="order-table-head-cell">Status</th>
+                </tr>
+            </thead>
+            <tbody id="order-table-body">
+                
+                 <!-- <tr>
+                    <td>
+                        <div class="order-header">
+                            <span class="order-number">#12345</span>
+                            
+                        
+                        <div class="order-details">
+                        <div class="order-details-item">
+                            <span>Pizza</span>
+                            <span>x2</span>
+                        </div>
+                        <div class="order-details-item">
+                            <span>Garlic bread</span>
+                            <span>x1</span>
+                        </div>
+                    </div> 
+                    </div>
+                    </td>
+                   <td>
+                    <div class="order-total">
+                        <span>Total: $25.99</span>
+                    </div>
+                   </td>
+                 </tr> -->
+            </tbody>
+        </table>
+    </section>
+<!-- <section class="order-sections">
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>ORDER NO.</th>
+        <th>ORDER DETAILS</th>
+        <th>TOTAL PRICE</th>
+        <th>STATUS</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>#12345</td>
+        <td>
+          Pizza x2 <br />
+          Garlic Bread x1
+        </td>
+        <td>$25.99</td>
+        <td><span class="status delivered">DELIVERED</span></td>
+      </tr>
+
+  
+      <tr>
+        <td>#12346</td>
+        <td>
+          Burger x1 <br />
+          Fries x1
+        </td>
+        <td>$12.50</td>
+        <td><span class="status transit">IN TRANSIT</span></td>
+      </tr>
+
+  
+      <tr>
+        <td>#12347</td>
+        <td>
+          Salad x3 <br />
+          Juice x2
+        </td>
+        <td>$18.99</td>
+        <td><span class="status pending">PENDING</span></td>
+      </tr>
+    </tbody>
+  </table>
+</section> -->
+
+   <script src="order.js"></script>
    
   </body>
 </html>
