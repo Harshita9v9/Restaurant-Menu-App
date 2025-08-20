@@ -6,6 +6,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: Arial, sans-serif;
+  background: #f9fafc;
+  color: #333;
 }
 
 /* Custom scrollbar styling */
@@ -70,7 +73,24 @@ body {
   cursor: pointer;
 }
 
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  display: inline-block; 
+}
+
+.nav-menu li a:hover {
+  color: #ffcc00;
+  border-bottom: 1px solid #ffcc00;
+}
+
 .nav-menu li:hover {
+  color: #ffcc00;
+  border-bottom: 1px solid #ffcc00;
+}
+
+.nav-menu li.active {
   color: #ffcc00;
   border-bottom: 1px solid #ffcc00;
 }
@@ -84,9 +104,18 @@ body {
   background-color: red;
   border: none;
   margin-left: 20px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-@media screen and(max-width : 1350px) {
+
+#login-button:hover {
+  background-color: #ffcc00;
+  color: black;
+}
+
+
+/* @media screen and(max-width : 1350px) {
   .nav-menu {
     width: 50vw;
   }
@@ -96,13 +125,89 @@ body {
   .nav-menu {
     width: 60vw;
   }
+} */
+
+@media screen and (max-width: 1200px) {
+  .nav-menu {
+    gap: 15px;
+  }
+  .food-card {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+  .nav-right {
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .top-3-card {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  .food-card {
+    width: 80%;
+    max-width: 400px;
+  }
+  .top-3-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: clamp(14px, 3vw, 16px);
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  #login-button {
+    margin: 10px 0;
+  }
+  .banner {
+    height: 35vh;
+  }
+  .food-card {
+    width: 100%;
+  }
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-top div {
+    width: 100%;
+    text-align: center;
+  }
+  .footer-section-3 form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section-3 form input,
+  .footer-section-3 form button {
+    width: 90%;
+  }
 }
 
 .banner {
-  height: 45vh;
+  height: 55vh;
   width: 100%;
   background-color: #dddddd;
-  background-image: url("banner2.jpg");
+  background-image: url("banner.jpg");
   background-repeat: none;
   background-size: cover;
   background-position: center;

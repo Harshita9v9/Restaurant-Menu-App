@@ -9,20 +9,22 @@
 <body>
     <nav class="navbar">
         <div class="nav-left">
-            <a href=""><img src="logo.png" alt=""></a>
+            <a href="index.html"><img src="logo.png" alt=""></a>
         </div>
         <div class="nav-right">
-            <button id="login-button"><a href="./signup.html">Login</a></button>
+            <!-- <button id="login-button"><a href="./signup.html">Login</a></button> -->
             <ul class="nav-menu">
-                <li>Home</li>
-                <li>Our Menu</li>
-                <li>Our Offers</li>
-                <li>Know us more</li>
-                <li>Your Orders</li>
-                <li>Cart [<span id="cartSize">0</span>]</li>
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="menu.html">Our Menu</a></li>
+                <li><a class="nav-link" href="offer.html">Our Offers</a></li>
+                <li><a class="nav-link" href="knowUsMore.html">Know us more</a></li>
+                <li><a class="nav-link" href="order.html">Your Orders</a></li>
+                <li><a class="nav-link" href="cart.html">Cart [<span id="cartSize">0</span>]</a></li>
+                <a href="signup.html" id="login-button" class="nav-link">Login</a>
             </ul>
             
         </div>
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
     </nav>
     <div class="banner">
         <!-- <img src="./banner2.jpg" alt=""> -->
@@ -34,52 +36,142 @@
         <span id="menu-title">Our Menu</span>
         <hr id="menu-title-underline">
         <div class="top-3-component">
+  <div class="top-3-title">
+    <span>Popular Categories</span>
+    <button>View All</button>
+  </div>
+  <div class="top-3-card">
+    <div class="food-card">
+      <img src="pizza.jpg" alt="Pizza" class="food-image">
+      <span class="food-card-name">Pizza</span>
+      <button class="add-to-cart-button">Explore</button>
+    </div>
+    <div class="food-card">
+      <img src="beverages.avif" alt="Drinks" class="food-image">
+      <span class="food-card-name">Beverages</span>
+      <button class="add-to-cart-button">Explore</button>
+    </div>
+    <div class="food-card">
+      <img src="dessert.jpeg" alt="Dessert" class="food-image">
+      <span class="food-card-name">Desserts</span>
+      <button class="add-to-cart-button">Explore</button>
+    </div>
+  </div>
+</div>
+
+<div class="top-3-component">
+  <div class="top-3-title">
+    <span>New Arrivals</span>
+    <button>View All</button>
+  </div>
+  <div class="top-3-card">
+    <div class="food-card">
+      <img src="wrap.jpg" alt="Wrap" class="food-image">
+      <span class="food-card-name">Chicken Wrap</span>
+      <span class="food-card-price">$6.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="smoothie.jpg" alt="Smoothie" class="food-image">
+      <span class="food-card-name">Mango Smoothie</span>
+      <span class="food-card-price">$4.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="tacos.jpg" alt="Taco" class="food-image">
+      <span class="food-card-name">Veggie Taco</span>
+      <span class="food-card-price">$5.49</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+        <div class="top-3-component">
+  <div class="top-3-title">
+    <span>Budget Friendly</span>
+    <button>View All</button>
+  </div>
+  <div class="top-3-card">
+    <div class="food-card">
+      <img src="burger.jpg" alt="Burger" class="food-image">
+      <span class="food-card-name">Burger</span>
+      <span class="food-card-price">$2.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="pasta.jpg" alt="Pasta" class="food-image">
+      <span class="food-card-name">Cheese Pasta</span>
+      <span class="food-card-price">$3.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="lemonade.jpg" alt="Lemonade" class="food-image">
+      <span class="food-card-name">Lemonade</span>
+      <span class="food-card-price">$1.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+        <div class="top-3-component">
+  <div class="top-3-title">
+    <span>Chef’s Special</span>
+    <button>View All</button>
+  </div>
+  <div class="top-3-card">
+    <div class="food-card">
+      <img src="steak.jpg" alt="Steak" class="food-image">
+      <span class="food-card-name">Grilled Steak</span>
+      <span class="food-card-price">$15.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="lobster.jpg" alt="Lobster" class="food-image">
+      <span class="food-card-name">Garlic Butter Lobster</span>
+      <span class="food-card-price">$22.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="sushi.jpg" alt="Sushi" class="food-image">
+      <span class="food-card-name">Japanese Sushi</span>
+      <span class="food-card-price">$18.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+        <div class="top-3-component">
             <div class="top-3-title">
-                <span>Best Seller</span>
-                <button>View All</button>
-            </div>
-            <div class="top-3-card">
-                <div class="food-card">
-                    <img src="food1.jpg" alt="food1" class="food-image">
-                    <span class="food-card-name">Best Seller Item 1</span>
-                    <span class="food-card-description">Description of the Best Seller Item</span>
-                    <span class="food-card-price">Price: $10.99 $8.99 10%off</span>
-                    <button class="add-to-cart-button">Add to Cart</button>
-                </div>
-                <div class="food-card">
-                    <img src="pasta.jpg" alt="food1" class="food-image">
-                    <span class="food-card-name">Best Seller Item 1</span>
-                    <span class="food-card-description">Description of the Best Seller Item</span>
-                    <span class="food-card-price">Price: $10.99 $8.99 10%off</span>
-                    <button class="add-to-cart-button">Add to Cart</button>
-                </div>
-                <div class="food-card">
-                    <img src="burger.jpg" alt="food1" class="food-image">
-                    <span class="food-card-name">Best Seller Item 1</span>
-                    <span class="food-card-description">Description of the Best Seller Item</span>
-                    <span class="food-card-price">Price: $10.99 $8.99 10%off</span>
-                    <button class="add-to-cart-button">Add to Cart</button>
-                </div>
-            </div>
-        </div>
-        <div class="top-3-component">
-            
-        </div>
-        <div class="top-3-component">
-            
-        </div>
-        <div class="top-3-component">
-            
-        </div>
-        <div class="top-3-component">
-            
+    <span>New Arrivals</span>
+    <button>View All</button>
+  </div>
+  <div class="top-3-card">
+    <div class="food-card">
+      <img src="wrap.jpg" alt="Wrap" class="food-image">
+      <span class="food-card-name">Chicken Wrap</span>
+      <span class="food-card-price">$6.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="smoothie.jpg" alt="Smoothie" class="food-image">
+      <span class="food-card-name">Mango Smoothie</span>
+      <span class="food-card-price">$4.99</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+    <div class="food-card">
+      <img src="tacos.jpg" alt="Taco" class="food-image">
+      <span class="food-card-name">Veggie Taco</span>
+      <span class="food-card-price">$5.49</span>
+      <button class="add-to-cart-button">Add to Cart</button>
+    </div>
+  </div>
         </div>
         
     </div>
     <div class="footer">
             <div class="footer-top">
                <div class="footer-section-1">
-                <img src="logo.png" alt="logo" class="logo">
+                 <a href="index.html"><img src="logo.png" alt=""></a>
                </div>
                <div class="footer-section-2">
                 <h1>Quick Links</h1>
