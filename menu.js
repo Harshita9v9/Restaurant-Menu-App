@@ -127,6 +127,7 @@ for (let i = 0; i < addToCartButtons.length; i++) {
 const searchInput = document.querySelector(".menu-search input");
 
 searchInput.addEventListener("input", (e) => {
+  console.log(e.target.value);
   const query = e.target.value.trim();
   const searchItemsContainer = document.querySelector(".search-sections");
 

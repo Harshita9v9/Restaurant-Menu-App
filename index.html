@@ -13,7 +13,7 @@
         </div>
         <div class="nav-right">
             <!-- <button id="login-button"><a href="./signup.html">Login</a></button> -->
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navLinks">
                 <li><a class="nav-link" href="index.html">Home</a></li>
                 <li><a class="nav-link" href="menu.html">Our Menu</a></li>
                 <li><a class="nav-link" href="offer.html">Our Offers</a></li>
@@ -24,7 +24,15 @@
             </ul>
             
         </div>
-        <div class="menu-toggle" id="menuToggle">&#9776;</div>
+
+        <div class="hamburger" id="hamburger">
+          <span></span>
+  <span></span>
+  <span></span>
+
+           
+        </div>
+
     </nav>
     <div class="banner">
         <!-- <img src="./banner2.jpg" alt=""> -->
@@ -194,5 +202,16 @@
                 Terms & Conditions | Privacy Policy | All Rights Reserved
             </div>
     </div>
+
+    <script>
+    const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+
+  </script>
+  
 </body>
 </html>
